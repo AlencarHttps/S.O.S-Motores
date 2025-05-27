@@ -10,7 +10,7 @@ const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER
 
 export default function Home() {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const images = ['/ia01.png', '/ia02.png', '/ia03.png'];
+  const images = ['/ia01.png', '/ia02.png'];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -26,7 +26,7 @@ export default function Home() {
       <section className="relative h-screen flex flex-col items-center justify-center">
         {/* Background Carousel */}
         <div className="absolute inset-0 z-0">
-          {[ '/ia01.png', '/ia02.png', '/ia03.png'].map((imageSrc, index) => (
+          {[ '/ia01.png', '/ia02.png'].map((imageSrc, index) => (
             <Image
               key={imageSrc}
               src={imageSrc}
@@ -126,21 +126,21 @@ export default function Home() {
       <div className="h-2 w-full bg-gradient-to-r from-primary via-primary-light to-primary-dark my-12 rounded-full opacity-30" />
 
       {/* Quem Somos Section */}
-      <section className="py-20" id="quem-somos">
+      <section className="pt-16 pb-12 bg-gray-100" id="quem-somos">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white p-6 sm:p-8 md:p-12 rounded-xl shadow-xl">
             <div>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-gray-800 mb-6">
                 Sobre Nós
               </h2>
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-700 leading-relaxed mb-4">
                 Com anos de experiência no setor, a SOS Motores se destaca pela excelência em manutenção de motores elétricos monofásicos, trifásicos e industriais. Nosso compromisso é oferecer soluções rápidas, seguras e com o melhor custo-benefício para residências, comércios e indústrias.
               </p>
-              <p className="text-gray-600">
+              <p className="text-gray-700 leading-relaxed">
                 Atuamos com total integridade, transparência e respeito ao cliente, garantindo qualidade em cada serviço realizado. Prezamos pelo atendimento personalizado, preço justo e resultados que superam expectativas.
               </p>
             </div>
-            <div className="relative h-[450px] rounded-lg overflow-hidden">
+            <div className="relative h-96 sm:h-[450px] md:h-[600px] rounded-lg overflow-hidden">
               {/* Background Carousel in Quem Somos Section */}
               {[ '/ia01.png', '/ia02.png', '/ia03.png'].map((imageSrc, index) => (
                 <Image
@@ -149,7 +149,7 @@ export default function Home() {
                   alt={`Background Image ${index + 1}`}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className={`absolute inset-0 object-contain w-full h-full transition-opacity duration-1000 ${index === activeImageIndex ? 'opacity-100' : 'opacity-0'}`}
+                  className={`absolute inset-0 object-cover transition-opacity duration-1000 ${index === activeImageIndex ? 'opacity-100' : 'opacity-0'}`}
                 />
               ))}
             </div>
