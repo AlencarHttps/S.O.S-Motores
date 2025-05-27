@@ -27,18 +27,20 @@ export default function Home() {
         {/* Background Carousel */}
         <div className="absolute inset-0 z-0">
           {[ '/ia01.png', '/ia02.png', '/ia03.png'].map((imageSrc, index) => (
-            <img
+            <Image
               key={imageSrc}
               src={imageSrc}
               alt={`Background Image ${index + 1}`}
+              fill
+              sizes="(max-width: 768px) 100vw, 100vw"
               className={`absolute inset-0 object-cover w-full h-full transition-opacity duration-1000 ${index === activeImageIndex ? 'opacity-30' : 'opacity-0'}`}
             />
           ))}
         </div>
 
         {/* Card for Logo */}
-        <div className="relative z-10 bg-white bg-opacity-80 p-8 rounded-lg shadow-lg flex flex-col items-center mb-8">
-          <div className="relative flex items-center justify-center" style={{ width: 400, height: 400 }}>
+        <div className="relative z-10 bg-white bg-opacity-80 p-4 sm:p-8 rounded-lg shadow-lg flex flex-col items-center mb-8">
+          <div className="relative flex items-center justify-center w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96">
             <Image
               src="/logo.png"
               alt="Logo da SOS Motores"
@@ -141,10 +143,12 @@ export default function Home() {
             <div className="relative h-[450px] rounded-lg overflow-hidden">
               {/* Background Carousel in Quem Somos Section */}
               {[ '/ia01.png', '/ia02.png', '/ia03.png'].map((imageSrc, index) => (
-                <img
+                <Image
                   key={imageSrc}
                   src={imageSrc}
                   alt={`Background Image ${index + 1}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className={`absolute inset-0 object-contain w-full h-full transition-opacity duration-1000 ${index === activeImageIndex ? 'opacity-100' : 'opacity-0'}`}
                 />
               ))}
